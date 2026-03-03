@@ -24,7 +24,13 @@ function update(req, res) {
 
 // DELETE
 function destroy(req, res) {
-  res.send("Eliminazione post");
+  const id = parseInt(req.params.id);
+
+  const newPosts = posts.filter((p) => p.id !== id);
+
+  console.log(newPosts);
+
+  res.sendStatus(204);
 }
 
 module.exports = {
