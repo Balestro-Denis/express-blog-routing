@@ -1,3 +1,5 @@
+const posts = require("../data/posts");
+
 // INDEX
 function index(req, res) {
   res.json(posts);
@@ -5,7 +7,9 @@ function index(req, res) {
 
 // SHOW
 function show(req, res) {
-  res.send("Show post");
+  const id = parseInt(req.params.id);
+  const post = posts.find((p) => p.id === id);
+  res.json(posts);
 }
 
 // CREATE
